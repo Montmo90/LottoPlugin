@@ -4,10 +4,13 @@ A Torch plugin for play Lotto in Space Engineers
 ## FILES
 **Lotto/LottoConfig.cfg**
 The config file *(all parameters can is change with a commands)*
+
 **Lotto/LottoPlayersPlay.xml**
 The list of players who have played the Lotto *(is reset for each new Lotto)*
+
 **Lotto/LottoPlayersWin.xml**
-The list of players win who have winning the Lotto *(is never reset*)
+The list of players win who have winning the Lotto *(is never reset)*
+
 **Lotto/LottoTranslates.xml**
 The translation file, you can edit it to change the text to display *(do not modify or delete "{0}" and other)*
 
