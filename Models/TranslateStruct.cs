@@ -6,14 +6,13 @@ namespace LottoPlugin.Models
     {
         public TranslateStruct(string id, string value)
         {
-            this.id = id;
             this.value = value;
+            this.id = id;
         }
 
         [XmlAttribute]
-        public string id;
-        [XmlAttribute]
         public string value;
-
+        [XmlAttribute]
+        public string id;
     }
 }

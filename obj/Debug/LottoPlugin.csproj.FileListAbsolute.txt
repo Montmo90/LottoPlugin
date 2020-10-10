@@ -163,3 +163,7 @@ C:\Users\Montmo\source\repos\LottoPlugin\obj\Debug\LottoPlugin.csproj.CoreCompil
 C:\Users\Montmo\source\repos\LottoPlugin\obj\Debug\LottoPlugin.csproj.CopyComplete
 C:\Users\Montmo\source\repos\LottoPlugin\obj\Debug\LottoPlugin.dll
 C:\Users\Montmo\source\repos\LottoPlugin\obj\Debug\LottoPlugin.pdb
+C:\Users\Montmo\Desktop\LottoPlugin.dll
+C:\Users\Montmo\Desktop\LottoPlugin.pdb
+C:\Users\Montmo\Desktop\Lotto\LottoPlugin.dll
+C:\Users\Montmo\Desktop\Lotto\LottoPlugin.pdb
