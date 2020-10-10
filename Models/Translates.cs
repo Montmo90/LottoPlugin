@@ -12,8 +12,6 @@ namespace LottoPlugin.Models
             InfoFunction();
             ConfigFunction();
             RespondFunction();
-
-            this.Test = new TranslateStruct[] { new TranslateStruct("lotto", "Lotto"), new TranslateStruct("autre", "autre") };
         }
 
         public void GeneralFunction()
@@ -141,8 +139,6 @@ namespace LottoPlugin.Models
                 new TranslateStruct("reload", "All files are reload !")
             };
         }
-
-        public TranslateStruct[] Test { get; set; }
 
         public TranslateStruct[] General { get; set; }
 

@@ -87,9 +87,9 @@ namespace LottoPlugin.Modules
 
         public static string ConfigFile = "LottoConfig.cfg";
         public static Config Config = new Config();
-        public static string PlayersPlayFile = "LottoPlayerPlay.xml";
+        public static string PlayersPlayFile = "LottoPlayersPlay.xml";
         public static PlayersPlay PlayersPlay = new PlayersPlay();
-        public static string PlayersWinFile ="LottoPlayerWin.xml";
+        public static string PlayersWinFile ="LottoPlayersWin.xml";
         public static PlayersWin PlayersWin = new PlayersWin();
         public static string TranslatesFile = "LottoTranslates.xml";
         public static Translates Translates = new Translates();
