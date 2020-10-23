@@ -64,6 +64,7 @@ namespace LottoPlugin.Models
 
                 new TranslateStruct("draw", "Draw:"),
                 new TranslateStruct("start", "> !Lotto draw start - Perform a manual Lotto draw"),
+                new TranslateStruct("startNumber", "> !lotto draw start <number> - Force manual Lotto draw with a number choice"),
                 new TranslateStruct("auto", "> !lotto draw auto <bool> - Activate or deactivate the automatic draft"),
                 new TranslateStruct("days", "> !lotto draw days <b> <b> <b> <b> <b> <b> <b> - Change the automatic day draw (Sunday Monday Tuesday Wednesday Thursday Friday Saturday)"),
                 new TranslateStruct("hour", "> !lotto draw hour <HH:mm> - Set the Lotto draw time (ex: 06:00pm or 18:00)"),

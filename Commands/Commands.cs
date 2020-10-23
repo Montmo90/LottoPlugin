@@ -51,6 +51,7 @@ namespace LottoPlugin.Commands
                 stringBuilder.AppendLine("");
                 stringBuilder.AppendLine(TranslatesUtils.GetHelpId("draw"));
                 stringBuilder.AppendLine(TranslatesUtils.GetHelpId("start"));
+                stringBuilder.AppendLine(TranslatesUtils.GetHelpId("startNumber"));
                 stringBuilder.AppendLine(TranslatesUtils.GetHelpId("auto"));
                 stringBuilder.AppendLine(TranslatesUtils.GetHelpId("days"));
                 stringBuilder.AppendLine(TranslatesUtils.GetHelpId("hour"));
