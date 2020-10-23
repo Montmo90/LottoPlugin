@@ -120,14 +120,14 @@ namespace LottoPlugin.Commands
         {
             if(!Module.Config.Open)
             {
-                base.Context.Respond(TranslatesUtils.GetRespondId("dontPlay"), TranslatesUtils.GetGeneralId("Lotto"), null);
+                base.Context.Respond(TranslatesUtils.GetRespondId("dontPlay"), TranslatesUtils.GetGeneralId("lotto"), null);
                 return;
             }
 
             base.Context.Player.TryGetBalanceInfo(out long money);
             if (money < Module.Config.TicketPrix)
             {
-                base.Context.Respond(TranslatesUtils.GetRespondId("money"), TranslatesUtils.GetGeneralId("Lotto"), null);
+                base.Context.Respond(TranslatesUtils.GetRespondId("money"), TranslatesUtils.GetGeneralId("lotto"), null);
                 return;
             }
 
@@ -136,14 +136,14 @@ namespace LottoPlugin.Commands
             {
                 foreach (var item in listPlayerNumbers)
                 {
-                    base.Context.Respond(String.Format(TranslatesUtils.GetInfoId("play"), item), TranslatesUtils.GetGeneralId("Lotto"), null);
+                    base.Context.Respond(String.Format(TranslatesUtils.GetInfoId("play"), item), TranslatesUtils.GetGeneralId("lotto"), null);
                 }
                 return;
             }
 
             Module.PlayersPlay.ListPlayersPlay.Add(new PlayersPlayStruct(base.Context.Player.DisplayName, base.Context.Player.IdentityId, number, DateTime.UtcNow));
             base.Context.Player.RequestChangeBalance(-Module.Config.TicketPrix);
-            base.Context.Respond(TranslatesUtils.GetRespondId("thank"), TranslatesUtils.GetGeneralId("Lotto"), null);
+            base.Context.Respond(TranslatesUtils.GetRespondId("thank"), TranslatesUtils.GetGeneralId("lotto"), null);
 
             Module.SavePlayersPlay();
         }
@@ -156,13 +156,13 @@ namespace LottoPlugin.Commands
             
             if(win == null)
             {
-                base.Context.Respond(TranslatesUtils.GetInfoId("dontRecove"), TranslatesUtils.GetGeneralId("Lotto"), null);
+                base.Context.Respond(TranslatesUtils.GetInfoId("dontRecove"), TranslatesUtils.GetGeneralId("lotto"), null);
                 return;
             }
 
             foreach (var item in win)
             {
-                base.Context.Respond(String.Format(TranslatesUtils.GetRespondId("recove"), item.gain), TranslatesUtils.GetGeneralId("Lotto"), null);
+                base.Context.Respond(String.Format(TranslatesUtils.GetRespondId("recove"), item.gain), TranslatesUtils.GetGeneralId("lotto"), null);
                 base.Context.Player.RequestChangeBalance(item.gain);
             }
         }
@@ -209,7 +209,7 @@ namespace LottoPlugin.Commands
         public void Open(bool open)
         {
             Module.Config.Open = open;
-            base.Context.Respond(TranslatesUtils.GetGeneralId("changed"), TranslatesUtils.GetGeneralId("Lotto"), null);
+            base.Context.Respond(TranslatesUtils.GetGeneralId("changed"), TranslatesUtils.GetGeneralId("lotto"), null);
             Module.SaveConfig();
         }
 
@@ -218,7 +218,7 @@ namespace LottoPlugin.Commands
         public void MaxNumber(int number)
         {
             Module.Config.MaxNumber = number;
-            base.Context.Respond(TranslatesUtils.GetGeneralId("changed"), TranslatesUtils.GetGeneralId("Lotto"), null);
+            base.Context.Respond(TranslatesUtils.GetGeneralId("changed"), TranslatesUtils.GetGeneralId("lotto"), null);
             Module.SaveConfig();
         }
         #endregion
@@ -229,7 +229,7 @@ namespace LottoPlugin.Commands
         public void TicketPrix(int prix)
         {
             Module.Config.TicketPrix = prix;
-            base.Context.Respond(TranslatesUtils.GetGeneralId("changed"), TranslatesUtils.GetGeneralId("Lotto"), null);
+            base.Context.Respond(TranslatesUtils.GetGeneralId("changed"), TranslatesUtils.GetGeneralId("lotto"), null);
             Module.SaveConfig();
         }
 
@@ -238,7 +238,7 @@ namespace LottoPlugin.Commands
         public void TicketMultiple(bool multiple)
         {
             Module.Config.TicketMultiple = multiple;
-            base.Context.Respond(TranslatesUtils.GetGeneralId("changed"), TranslatesUtils.GetGeneralId("Lotto"), null);
+            base.Context.Respond(TranslatesUtils.GetGeneralId("changed"), TranslatesUtils.GetGeneralId("lotto"), null);
             Module.SaveConfig();
         }
         #endregion
@@ -249,7 +249,7 @@ namespace LottoPlugin.Commands
         public void Gain(int gain)
         {
             Module.Config.Gain = gain;
-            base.Context.Respond(TranslatesUtils.GetGeneralId("changed"), TranslatesUtils.GetGeneralId("Lotto"), null);
+            base.Context.Respond(TranslatesUtils.GetGeneralId("changed"), TranslatesUtils.GetGeneralId("lotto"), null);
             Module.SaveConfig();
         }
 
@@ -258,7 +258,7 @@ namespace LottoPlugin.Commands
         public void GainMax(int gainMax)
         {
             Module.Config.GainMax = gainMax;
-            base.Context.Respond(TranslatesUtils.GetGeneralId("changed"), TranslatesUtils.GetGeneralId("Lotto"), null);
+            base.Context.Respond(TranslatesUtils.GetGeneralId("changed"), TranslatesUtils.GetGeneralId("lotto"), null);
             Module.SaveConfig();
         }
 
@@ -267,7 +267,7 @@ namespace LottoPlugin.Commands
         public void GainCumulate(bool cumulate)
         {
             Module.Config.GainCumulate = cumulate;
-            base.Context.Respond(TranslatesUtils.GetGeneralId("changed"), TranslatesUtils.GetGeneralId("Lotto"), null);
+            base.Context.Respond(TranslatesUtils.GetGeneralId("changed"), TranslatesUtils.GetGeneralId("lotto"), null);
             Module.SaveConfig();
         }
 
@@ -277,12 +277,12 @@ namespace LottoPlugin.Commands
         {
             if ((Module.Config.GainTotal + add) > Module.Config.GainMax)
             {
-                base.Context.Respond(TranslatesUtils.GetRespondId("add"), TranslatesUtils.GetGeneralId("Lotto"), null);
+                base.Context.Respond(TranslatesUtils.GetRespondId("add"), TranslatesUtils.GetGeneralId("lotto"), null);
                 return;
             }
 
             Module.Config.GainTotal += add;
-            base.Context.Respond(TranslatesUtils.GetGeneralId("changed"), TranslatesUtils.GetGeneralId("Lotto"), null);
+            base.Context.Respond(TranslatesUtils.GetGeneralId("changed"), TranslatesUtils.GetGeneralId("lotto"), null);
             Module.SaveConfig();
         }
 
@@ -292,12 +292,12 @@ namespace LottoPlugin.Commands
         {
             if((Module.Config.GainTotal - remove) < 0)
             {
-                base.Context.Respond(TranslatesUtils.GetRespondId("remove"), TranslatesUtils.GetGeneralId("Lotto"), null);
+                base.Context.Respond(TranslatesUtils.GetRespondId("remove"), TranslatesUtils.GetGeneralId("lotto"), null);
                 return;
             }
 
             Module.Config.GainTotal -= remove;
-            base.Context.Respond(TranslatesUtils.GetGeneralId("changed"), TranslatesUtils.GetGeneralId("Lotto"), null);
+            base.Context.Respond(TranslatesUtils.GetGeneralId("changed"), TranslatesUtils.GetGeneralId("lotto"), null);
             Module.SaveConfig();
         }
 
@@ -306,7 +306,7 @@ namespace LottoPlugin.Commands
         public void GainPartage(bool partage)
         {
             Module.Config.GainPartage = partage;
-            base.Context.Respond(TranslatesUtils.GetGeneralId("changed"), TranslatesUtils.GetGeneralId("Lotto"), null);
+            base.Context.Respond(TranslatesUtils.GetGeneralId("changed"), TranslatesUtils.GetGeneralId("lotto"), null);
             Module.SaveConfig();
         }
         #endregion
@@ -324,7 +324,7 @@ namespace LottoPlugin.Commands
         public void DrawAuto(bool auto)
         {
             Module.Config.DrawAuto = auto;
-            base.Context.Respond(TranslatesUtils.GetGeneralId("changed"), TranslatesUtils.GetGeneralId("Lotto"), null);
+            base.Context.Respond(TranslatesUtils.GetGeneralId("changed"), TranslatesUtils.GetGeneralId("lotto"), null);
             Module.SaveConfig();
         }
 
@@ -334,15 +334,15 @@ namespace LottoPlugin.Commands
         {
             if (!sun && !mon && !tue && !wed && !thu && !fri && !sat)
             {
-                base.Context.Respond(TranslatesUtils.GetRespondId("days"), TranslatesUtils.GetGeneralId("Lotto"), null);
+                base.Context.Respond(TranslatesUtils.GetRespondId("days"), TranslatesUtils.GetGeneralId("lotto"), null);
                 return;
             }
 
             Module.Config.DrawDays = new DayOfWeekStruct(sun, mon, tue, wed, thu, fri, sat);
             Module.Config.NextDraw = ConfigUtils.NextDraw();
-            base.Context.Respond(TranslatesUtils.GetGeneralId("changed"), TranslatesUtils.GetGeneralId("Lotto"), null);
+            base.Context.Respond(TranslatesUtils.GetGeneralId("changed"), TranslatesUtils.GetGeneralId("lotto"), null);
             if(!Module.Config.DrawAuto)
-                base.Context.Respond(TranslatesUtils.GetRespondId("auto"), TranslatesUtils.GetGeneralId("Lotto"), null);
+                base.Context.Respond(TranslatesUtils.GetRespondId("auto"), TranslatesUtils.GetGeneralId("lotto"), null);
             Module.SaveConfig();
         }
 
@@ -352,15 +352,15 @@ namespace LottoPlugin.Commands
         {
             if (!ConfigUtils.IsValidTimeFormat(hours))
             {
-                base.Context.Respond(TranslatesUtils.GetRespondId("hour"), TranslatesUtils.GetGeneralId("Lotto"), null);
+                base.Context.Respond(TranslatesUtils.GetRespondId("hour"), TranslatesUtils.GetGeneralId("lotto"), null);
                 return;
             }
 
             Module.Config.DrawHours = hours;
             Module.Config.NextDraw = ConfigUtils.NextDraw();
-            base.Context.Respond(TranslatesUtils.GetGeneralId("changed"), TranslatesUtils.GetGeneralId("Lotto"), null);
+            base.Context.Respond(TranslatesUtils.GetGeneralId("changed"), TranslatesUtils.GetGeneralId("lotto"), null);
             if (!Module.Config.DrawAuto)
-                base.Context.Respond(TranslatesUtils.GetRespondId("auto"), TranslatesUtils.GetGeneralId("Lotto"), null);
+                base.Context.Respond(TranslatesUtils.GetRespondId("auto"), TranslatesUtils.GetGeneralId("lotto"), null);
             Module.SaveConfig();
         }
         #endregion
@@ -368,26 +368,26 @@ namespace LottoPlugin.Commands
         #region Save/Reload
         [Command("save", "Save all files")]
         [Permission(MyPromoteLevel.Admin)]
-        public void Save(string hours)
+        public void Save()
         {
             Module.SaveConfig();
             Module.SavePlayersPlay();
             Module.SavePlayersWin();
             Module.SaveTranslates();
 
-            base.Context.Respond(TranslatesUtils.GetRespondId("save"), TranslatesUtils.GetGeneralId("Lotto"), null);
+            base.Context.Respond(TranslatesUtils.GetRespondId("save"), TranslatesUtils.GetGeneralId("lotto"), null);
         }
 
         [Command("reload", "Reload all files")]
         [Permission(MyPromoteLevel.Admin)]
-        public void ReLoad(string hours)
+        public void ReLoad()
         {
             Module.LoadConfig();
             Module.LoadPlayersPlay();
             Module.LoadPlayersWin();
             Module.LoadTranslates();
 
-            base.Context.Respond(TranslatesUtils.GetRespondId("reload"), TranslatesUtils.GetGeneralId("Lotto"), null);
+            base.Context.Respond(TranslatesUtils.GetRespondId("reload"), TranslatesUtils.GetGeneralId("lotto"), null);
         }
         #endregion
     }
