@@ -13,6 +13,7 @@ A Torch plugin for play Lotto in Space Engineers
 ## COMMANDS
 ### Lotto Help
 ```
+!lotto help - Show all commands
 !lotto info - Show information
 !lotto play <number> - Play Lotto
 !lotto recove - Allows you to recover your gain
@@ -47,6 +48,6 @@ A Torch plugin for play Lotto in Space Engineers
 !lotto draw auto <bool> - Activate or deactivate the automatic draft
 !lotto draw days <b> <b> <b> <b> <b> <b> <b> - Change the automatic day draw (Sunday Monday Tuesday Wednesday Thursday Friday Saturday)
 !lotto draw hour <HH:mm> - Set the Lotto draw time (ex: 06:00pm or 18:00)
-!Lotto save - Save all files
-!Lotto reload - Reload all files
+!lotto save - Save all files
+!lotto reload - Reload all files
 ```
