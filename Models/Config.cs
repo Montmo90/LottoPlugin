@@ -21,6 +21,8 @@ namespace LottoPlugin.Models
             this.DrawDays = new DayOfWeekStruct(true, true, true, true, true, true, true);
             this.DrawHours = "18:00";
             this.NextDraw = new DateTime();
+            this.NumberTotalDraw = 0;
+            this.NumberTotalPlayersWin = 0;
         }
 
         public bool Open { get; set; }
@@ -36,6 +38,8 @@ namespace LottoPlugin.Models
         public DayOfWeekStruct DrawDays { get; set; }
         public string DrawHours { get; set; }
         public DateTime NextDraw { get; set; }
+        public int NumberTotalDraw { get; set; }
+        public int NumberTotalPlayersWin { get; set; }
 
     }
 }

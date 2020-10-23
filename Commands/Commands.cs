@@ -107,8 +107,11 @@ namespace LottoPlugin.Commands
 
                 stringBuilder.AppendLine(String.Format(TranslatesUtils.GetInfoId("recove"), win.Count, allGain));
             }
-            
-            //stringBuilder.AppendLine(String.Format("Il y a {0:N0} joueur(s) ayant joué au Lotto", Module.PlayersPlay.ListPlayersPlay.Count));
+
+            stringBuilder.AppendLine("");
+            stringBuilder.AppendLine("");
+            stringBuilder.AppendLine("");
+            stringBuilder.AppendLine(String.Format(TranslatesUtils.GetGeneralId("stats"), Module.Config.NumberTotalDraw, Module.Config.NumberTotalPlayersWin));
 
             DialogMessage dialogMessage = new DialogMessage(TranslatesUtils.GetInfoId("title"), TranslatesUtils.GetGeneralId("lotto"), stringBuilder.ToString());
             ModCommunication.SendMessageTo(dialogMessage, base.Context.Player.SteamUserId);
@@ -314,9 +317,9 @@ namespace LottoPlugin.Commands
         #region Draw
         [Command("draw start", "Perform a manual Lotto draw")]
         [Permission(MyPromoteLevel.Admin)]
-        public void Draw()
-        {
-            LottoPlugin.Draw();
+        public void Draw(int number = -1)
+        {            
+            LottoPlugin.Draw(number);
         }
 
         [Command("draw auto", "Activate or deactivate the automatic draft")]

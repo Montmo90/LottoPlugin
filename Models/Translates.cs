@@ -19,10 +19,11 @@ namespace LottoPlugin.Models
             this.General = new TranslateStruct[] {
                 new TranslateStruct("lotto", "Lotto"),
 
-                new TranslateStruct("draw", "Lotto draw !"),
+                new TranslateStruct("draw", "The result of the draw is {0}"),
                 new TranslateStruct("dontWin", "There is no winner !"),
                 new TranslateStruct("win", "The winner is {0}"),
                 new TranslateStruct("next", "Next draw on {0}, for an amount of {1:N0} SC"),
+                new TranslateStruct("stats", "There was {0} lotto draw with {1} winner(s)"),
 
                 new TranslateStruct("changed", "Value changed !"),
 

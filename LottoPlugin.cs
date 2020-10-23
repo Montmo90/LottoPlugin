@@ -35,24 +35,27 @@ namespace LottoPlugin
             Draw();
         }
 
-        public static void Draw()
+        public static void Draw(int number = -1)
         {
-            var random = new Random();
-            var randomNumber = random.Next(0, Module.Config.MaxNumber);
+            Module.Config.NumberTotalDraw++;
 
-            MyVisualScriptLogicProvider.SendChatMessageColored(TranslatesUtils.GetGeneralId("draw"), Color.Red, TranslatesUtils.GetGeneralId("Lotto"));
+            var random = new Random();
+            var randomNumber = number == -1 ? random.Next(0, Module.Config.MaxNumber) : number;
+
+            MyVisualScriptLogicProvider.SendChatMessageColored(String.Format(TranslatesUtils.GetGeneralId("draw"), randomNumber), Color.Red, TranslatesUtils.GetGeneralId("lotto"));
 
             var listPlayersWin = ListPlayersWin(randomNumber);
             if (listPlayersWin.Count == 0)
             {
-                MyVisualScriptLogicProvider.SendChatMessageColored(TranslatesUtils.GetGeneralId("dontWin"), Color.Red, TranslatesUtils.GetGeneralId("Lotto"));
+                MyVisualScriptLogicProvider.SendChatMessageColored(TranslatesUtils.GetGeneralId("dontWin"), Color.Red, TranslatesUtils.GetGeneralId("lotto"));
             }
             else
             {
+                Module.Config.NumberTotalPlayersWin++;
                 var gain = Module.Config.GainPartage ? Module.Config.GainTotal / listPlayersWin.Count : Module.Config.GainTotal;
                 foreach (var item in listPlayersWin)
                 {
-                    MyVisualScriptLogicProvider.SendChatMessageColored(String.Format(TranslatesUtils.GetGeneralId("win"), PlayersUtils.GetPlayerNameById(item.playerId)), Color.Red, TranslatesUtils.GetGeneralId("Lotto"));
+                    MyVisualScriptLogicProvider.SendChatMessageColored(String.Format(TranslatesUtils.GetGeneralId("win"), PlayersUtils.GetPlayerNameById(item.playerId)), Color.Red, TranslatesUtils.GetGeneralId("lotto"));
                     Module.PlayersWin.ListPlayersWin.Add(new Models.PlayersWinStruct(item.playerName, item.playerId, randomNumber, gain, DateTime.Now));
                 }
                 Module.Config.GainTotal = 0;
@@ -66,7 +69,7 @@ namespace LottoPlugin
             var next = ConfigUtils.NextDraw();
             Module.Config.NextDraw = next;
 
-            MyVisualScriptLogicProvider.SendChatMessageColored(String.Format(TranslatesUtils.GetGeneralId("next"), next, Module.Config.GainTotal), Color.Red, TranslatesUtils.GetGeneralId("Lotto"));
+            MyVisualScriptLogicProvider.SendChatMessageColored(String.Format(TranslatesUtils.GetGeneralId("next"), next, Module.Config.GainTotal), Color.Red, TranslatesUtils.GetGeneralId("lotto"));
 
             Module.PlayersPlay.ListPlayersPlay.Clear();
 
