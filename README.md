@@ -44,7 +44,8 @@ A Torch plugin for play Lotto in Space Engineers
 
 ### Draw:
 ```
-!Lotto draw start - Perform a manual Lotto draw
+!lotto draw start - Perform a manual Lotto draw
+!lotto draw start <number> - Force manual Lotto draw with a number choice
 !lotto draw auto <bool> - Activate or deactivate the automatic draft
 !lotto draw days <b> <b> <b> <b> <b> <b> <b> - Change the automatic day draw (Sunday Monday Tuesday Wednesday Thursday Friday Saturday)
 !lotto draw hour <HH:mm> - Set the Lotto draw time (ex: 06:00pm or 18:00)
